@@ -14,7 +14,7 @@
           <li class="list-group-item" draggable="true" data-id="{{.NotebookId.Hex}}">
           	<span class="pull-left media-xs"><i class="fa fa-sort text-muted fa m-r-sm"></i></span>
           	<div class="pull-right" style="margin-right: 10px">
-            	{{msg $ "permanentLink"}}: /cate/<input data-id="{{.NotebookId.Hex}}" class="url-title" type="text" value="{{if .UrlTitle}}{{.UrlTitle|decodeUrlValue}}{{else}}{{.NotebookId.Hex}}{{end}}"/>
+            	{{msg $ "permanentLink"}}: /cat/<input data-id="{{.NotebookId.Hex}}" class="url-title" type="text" value="{{if .UrlTitle}}{{.UrlTitle|decodeUrlValue}}{{else}}{{.NotebookId.Hex}}{{end}}"/>
             </div>
             {{.Title}}
           </li>

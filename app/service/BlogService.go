@@ -1118,19 +1118,19 @@ func (this *BlogService) GetBlogUrls(userBlog *info.UserBlog, userInfo *info.Use
 	if userBlog.Domain != "" && configService.AllowCustomDomain() { // http://demo.com
 		// ok
 		indexUrl = configService.GetUserUrl(userBlog.Domain)
-		cateUrl = indexUrl + "/cate"     // /xxxxx
+		cateUrl = indexUrl + "/cat"     // /xxxxx
 		postUrl = indexUrl + "/post"     // /xxxxx
 		searchUrl = indexUrl + "/search" // /xxxxx
-		singleUrl = indexUrl + "/single"
+		singleUrl = indexUrl + "/page"
 		archiveUrl = indexUrl + "/archives"
 		tagsUrl = indexUrl + "/tags"
 		tagPostsUrl = indexUrl + "/tag"
 	} else if userBlog.SubDomain != "" { // demo.leanote.com
 		indexUrl = configService.GetUserSubUrl(userBlog.SubDomain)
-		cateUrl = indexUrl + "/cate"     // /xxxxx
+		cateUrl = indexUrl + "/cat"     // /xxxxx
 		postUrl = indexUrl + "/post"     // /xxxxx
 		searchUrl = indexUrl + "/search" // /xxxxx
-		singleUrl = indexUrl + "/single"
+		singleUrl = indexUrl + "/page"
 		archiveUrl = indexUrl + "/archives"
 		tagsUrl = indexUrl + "/tags"
 		tagPostsUrl = indexUrl + "/tag"
@@ -1146,10 +1146,10 @@ func (this *BlogService) GetBlogUrls(userBlog *info.UserBlog, userInfo *info.Use
 			userIdOrEmail = userInfo.UserId.Hex()
 		}
 		indexUrl = blogUrl + "/" + userIdOrEmail
-		cateUrl = blogUrl + "/cate/" + userIdOrEmail        // /username/notebookId
+		cateUrl = blogUrl + "/cat/" + userIdOrEmail        // /username/notebookId
 		postUrl = blogUrl + "/post/" + userIdOrEmail        // /username/xxxxx
 		searchUrl = blogUrl + "/search/" + userIdOrEmail    // blog.leanote.com/search/username
-		singleUrl = blogUrl + "/single/" + userIdOrEmail    // blog.leanote.com/single/username/singleId
+		singleUrl = blogUrl + "/page/" + userIdOrEmail    // blog.leanote.com/single/username/singleId
 		archiveUrl = blogUrl + "/archives/" + userIdOrEmail // blog.leanote.com/archive/username
 		tagsUrl = blogUrl + "/tags/" + userIdOrEmail
 		tagPostsUrl = blogUrl + "/tag/" + userIdOrEmail // blog.leanote.com/archive/username

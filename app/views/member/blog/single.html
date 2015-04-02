@@ -18,7 +18,7 @@
 	              <a href="#"><i class="fa fa-times icon-muted fa-fw page-delete" data-id="{{.SingleId}}"></i></a> 
 	            </span>
 	            <div class="pull-right" style="margin-right: 10px">
-	            	{{msg $ "permanentLink"}}: /single/<input data-id="{{.SingleId}}" class="url-title" type="text" value="{{if .UrlTitle}}{{.UrlTitle|decodeUrlValue}}{{else}}{{.SingleId}}{{end}}"/>
+	            	{{msg $ "permanentLink"}}: /page/<input data-id="{{.SingleId}}" class="url-title" type="text" value="{{if .UrlTitle}}{{.UrlTitle|decodeUrlValue}}{{else}}{{.SingleId}}{{end}}"/>
 	            </div>
 	            <div class="clear">
 		          {{.Title}}	
