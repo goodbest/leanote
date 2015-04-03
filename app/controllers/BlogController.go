@@ -143,8 +143,8 @@ func (c Blog) setPreviewUrl() {
 // 各种地址设置
 func (c Blog) setUrl(userBlog info.UserBlog, userInfo info.User) {
 	// 主页 http://leanote.com/blog/life or http://blog.leanote.com/life or http:// xxxx.leanote.com or aa.com
-	// host := c.Request.Request.Host
-	// var staticUrl = configService.GetUserUrl(strings.Split(host, ":")[0])
+	host := c.Request.Request.Host
+	var staticUrl = configService.GetUserUrl(strings.Split(host, ":")[0])
 	// staticUrl == host, 为保证同源!!! 只有host, http://leanote.com, http://blog/leanote.com
 	// life.leanote.com, lealife.com
 	siteUrl := configService.GetSiteUrl()
@@ -178,7 +178,7 @@ func (c Blog) setUrl(userBlog info.UserBlog, userInfo info.User) {
 	c.RenderArgs["shareCommentCssUrl"] = siteUrl + "/public/blog/css/share_comment.css"
 	c.RenderArgs["shareCommentJsUrl"] = siteUrl + "/public/blog/js/share_comment.js"
 
-	c.RenderArgs["fontAwesomeUrl"] = siteUrl + "/css/font-awesome-4.2.0/css/font-awesome.css"
+	c.RenderArgs["fontAwesomeUrl"] = staticUrl + "/css/font-awesome-4.2.0/css/font-awesome.css"
 
 	c.RenderArgs["bootstrapCssUrl"] = siteUrl + "/css/bootstrap.css"
 	c.RenderArgs["bootstrapJsUrl"] = siteUrl + "/js/bootstrap-min.js"
