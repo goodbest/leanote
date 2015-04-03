@@ -11,17 +11,17 @@ GET     /note   	                                Note.Index
 GET     /index   	                                Index.Index
 
 GET     /login                                     	Auth.Login
-POST     /doLogin                                   Auth.DoLogin
+POST    /doLogin                                   Auth.DoLogin
 GET     /logout                                     Auth.Logout
-Get     /demo                                   	Auth.Demo
+#Get     /demo                                   	Auth.Demo
 
-Get 	 /register									Auth.Register
-POST     /doRegister                                Auth.DoRegister
+#Get 	 /register									Auth.Register
+#POST     /doRegister                                Auth.DoRegister
 
-GET 	/findPassword/:token						Auth.FindPassword2
-GET 	/findPassword								Auth.FindPassword
-POST 	/doFindPassword								Auth.DoFindPassword
-POST	/findPasswordUpdate							Auth.FindPasswordUpdate
+#GET 	/findPassword/:token						Auth.FindPassword2
+#GET 	/findPassword								Auth.FindPassword
+#POST 	/doFindPassword								Auth.DoFindPassword
+#POST	/findPasswordUpdate							Auth.FindPasswordUpdate
 
 #####
 # 这么多列表, 只是为了最后一句pjax
@@ -53,28 +53,42 @@ GET		/blog/getComments					Blog.GetComments
 *		/blog/commentPost					Blog.CommentPost
 GET		/blog/getPostStat					Blog.GetPostStat
 
-
 GET		/blog/tags/:userIdOrEmail	Blog.Tags
 GET		/blog/tags	Blog.Tags
+GET		/tags/:userIdOrEmail	Blog.Tags
+GET		/tags	Blog.Tags
 
 GET		/blog/tag/:userIdOrEmail/:tag	Blog.Tag
 GET		/blog/tag/:tag	Blog.Tag
+GET		/tag/:userIdOrEmail/:tag	Blog.Tag
+GET		/tag/:tag	Blog.Tag
 
 GET		/blog/search/:userIdOrEmail	Blog.Search
 GET		/blog/search	Blog.Search
+GET		/search/:userIdOrEmail	Blog.Search
+GET		/search	Blog.Search
 
 GET		/blog/archives/:userIdOrEmail	Blog.Archives
 GET		/blog/archives	Blog.Archives
+GET		/archives/:userIdOrEmail	Blog.Archives
+GET		/archives	Blog.Archives
 
 GET		/blog/post/:noteId			Blog.Post
 GET		/blog/post/:userIdOrEmail/:noteId			Blog.Post
-GET		/blog/view/:noteId			Blog.Post
+GET		/blog/view/:noteId 		Blog.Post
+GET		/post/:noteId			Blog.Post
+GET		/post/:userIdOrEmail/:noteId			Blog.Post
+GET		/view/:noteId			Blog.Post
 
 GET		/blog/page/:userIdOrEmail/:singleId			Blog.Single
 GET		/blog/page/:singleId			Blog.Single
+GET		/page/:userIdOrEmail/:singleId			Blog.Single
+GET		/page/:singleId			Blog.Single
 
 GET		/blog/cat/:notebookId		Blog.Cate
 GET		/blog/cat/:userIdOrEmail/:notebookId		Blog.Cate
+GET		/cat/:notebookId		Blog.Cate
+GET		/cat/:userIdOrEmail/:notebookId		Blog.Cate
 
 GET		/blog/listCateLatest/:notebookId	Blog.ListCateLatest
 GET		/blog/:userIdOrEmail		Blog.Index
