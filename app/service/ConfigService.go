@@ -519,7 +519,7 @@ func (this *ConfigService) GetLeaUrl() string {
 }
 
 func (this *ConfigService) GetUserUrl(domain string) string {
-	return schema + domain + port
+	return schema + domain// + port
 }
 func (this *ConfigService) GetUserSubUrl(subDomain string) string {
 	return schema + subDomain + "." + this.GetDefaultDomain()
