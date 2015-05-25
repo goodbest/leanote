@@ -1,4 +1,3 @@
-
 # Leanote产品
 
 ## 1. 介绍
@@ -24,85 +23,43 @@ Leanote, 不只是笔记!
 leanote是一款私有云笔记, 你可以下载它安装在自己的服务器上, 当然也可以在 http://leanote.com 上注册.
 
 这里详细整理了leanote二进版和leanote开发版的安装教程, 请移步至:
+
 * [leanote二进制详细安装教程](https://github.com/leanote/leanote/wiki/leanote%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E8%AF%A6%E7%BB%86%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B)
 * [leanote开发版详细安装教程](https://github.com/leanote/leanote/wiki/leanote%E5%BC%80%E5%8F%91%E7%89%88%E8%AF%A6%E7%BB%86%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B)
-
-### 3.1. 下载leanote
-
-Leanote V1.0-beta.3 已发布, 二进制文件(暂时没有windows版的):
-
-* Linux: [leanote-linux-x86_64.v1.0-beta.3.bin.tar.gz](https://github.com/leanote/leanote/releases/download/1.0-beta.3/leanote-linux-x86_64.v1.0-beta.3.bin.tar.gz)
-* MacOS X: [leanote-mac-x86_64.v1.0-beta.3.bin.tar.gz](https://github.com/leanote/leanote/releases/download/1.0-beta.3/leanote-mac-x86_64.v1.0-beta.3.bin.tar.gz)
-
-或者直接检出[Leanote bin repository](https://github.com/leanote/leanote-bin) (推荐, 因为为最新版本)
-
-### 3.2. 安装 MongodbDB
-
-Leanote是由golang(使用[revel](https://revel.github.io/)框架 和 [MongoDB](https://www.mongodb.org)数据库), 你需要先安装Mongodb.
-
-安装MongodbDB, 导入数据更多细节请查看: [wiki](https://github.com/leanote/leanote/wiki/Install-Mongodb)
-
-### 3.3. 导入初始数据
-
-MongodbDB初始数据在 `[PATH_TO_LEANOTE]/mongodb_backup/leanote_install_data`
-
-```
-$> mongorestore -h localhost -d leanote --directoryperdb PATH_TO_LEANOTE/mongodb_backup/leanote_install_data
-```
-
-初始数据包含两个用户:
-
-```
-user2 username: admin, password: abc123 (管理员, 重要!)
-user3 username: demo@leanote.com, password: demo@leanote.com (为体验使用)
-```
-
-### 3.4. 配置
-
-修改 `[PATH_TO_LEANOTE]/conf/app.conf`. 有以下选项:
-
-``mongodb``  **必须配置!**
-
-```Shell
-db.host=localhost
-db.port=27017
-db.dbname=leanote
-db.username=
-db.password=
-```
-
-``app.secret`` **重要**
-请随意修改一个, app的密钥, 不能使用默认的, 不然会有安全问题
-
-更多配置请查看 `app/app.conf` 和 [revel 手册](https://revel.github.io/)
-
-### 3.5. 运行leanote
-
-```
-$> cd PATH_TO_LEANOTE/bin
-$> sudo sh run.sh
-```
 
 ## 4. 如何对leanote进行二次开发
 
 请查看 [How-to-develop-leanote](https://github.com/leanote/leanote/wiki/How-to-develop-leanote-%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91leanote)
 
-## 5. 贡献者
-多谢 [贡献者](https://github.com/leanote/leanote/graphs/contributors) 的贡献, leanote因有你们而更完美!
-
-## 6. 加入我们
-
-欢迎提交[pull requests](https://github.com/leanote/leanote/pulls) 到leanote.
-
-leanote还有很多问题, 如果你喜欢它, 欢迎加入我们一起完善leanote.
-
-## 相关文档
+## 5 相关文档
 * [leanote二进制版详细安装教程](https://github.com/leanote/leanote/wiki/leanote%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E8%AF%A6%E7%BB%86%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B)
 * [leanote开发版详细安装教程](https://github.com/leanote/leanote/wiki/leanote%E5%BC%80%E5%8F%91%E7%89%88%E8%AF%A6%E7%BB%86%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B)
 * [Leanote source leanote源码导读](https://github.com/leanote/leanote/wiki/Leanote-source-leanote源码导读)
 * [leanote blog theme api(中文版)](https://github.com/leanote/leanote/wiki/leanote-blog-theme-api)
 * [How to develop leanote 如何开发leanote](https://github.com/leanote/leanote/wiki/How-to-develop-leanote-如何开发leanote)
 
+更多文档请查看 [wiki](https://github.com/leanote/leanote/wiki).
+
+## 6. 贡献者
+多谢 [贡献者](https://github.com/leanote/leanote/graphs/contributors) 的贡献, leanote因有你们而更完美!
+
+## 7. 加入我们
+
+欢迎提交[pull requests](https://github.com/leanote/leanote/pulls) 到leanote.
+
+有任何问题或建议, 欢迎提交[issue](https://github.com/leanote/leanote/issues).
+
+Leanote还有很多问题, 如果你喜欢它, 欢迎加入我们一起完善leanote.
+
+## 8. 捐赠
+支持我们, [捐赠Leanote](http://leanote.org/#donate). 感谢[捐赠者](http://leanote.leanote.com/post/leanote-donation-list), 谢谢你们的鼓励, Leanote会一直坚持!
+
+## 9. 其它相关项目
+* [Leanote Desktop App](https://github.com/leanote/desktop-app), [下载地址](http://app.leanote.com)
+* [Leanote IOS](https://github.com/leanote/leanote-ios), 开发阶段
+* [Leanote Android](https://github.com/Dminter/leanote-android-client), 开发阶段
+
+同样, 欢迎加入我们!
 
 ## 讨论
 * [leanote 社区](http://bbs.leanote.com)

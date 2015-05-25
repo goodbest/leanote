@@ -2,9 +2,9 @@
 pkg
 bin2
 bin/i18n
-bin/leanote-linux
-bin/leanote-mac
+bin/leanote*
 bin/release
+bin/test.sh
 bin/tmp
 bin/test
 bin/src
@@ -16,3 +16,5 @@ app/tmp/main.go
 .project
 public/config.codekit
 files
+/gulpfile.js
+/node_modules
