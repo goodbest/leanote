@@ -226,6 +226,10 @@ var Resize = {
 				$t.removeClass('open');//.addClass('close');
 				self.rightColumn.find('.layout-resizer').removeClass('open');
 				$('.preview-container').hide();
+
+				if(MD) {
+					MD.resize();
+				}
 			} else {
 				$t.addClass('open');
 				self.rightColumn.find('.layout-resizer').addClass('open');
@@ -233,8 +237,8 @@ var Resize = {
 				$('.preview-container').show();
 				self.rightColumn.css('left', everLeftWidth).width('auto');
 				
-				if(MD) { 
-					MD.onResize();
+				if(MD) {
+					MD.resize();
 				}
 			}
 		});
@@ -1017,6 +1021,7 @@ LeaAce = {
 			$pre.attr("contenteditable", false); // ? 避免tinymce编辑
 			var aceEditor = ace.edit(id);
 
+			aceEditor.container.style.lineHeight = 1.5;
 			aceEditor.setTheme("ace/theme/tomorrow");
 
 			var brush = me.getPreBrush($pre);
@@ -1029,6 +1034,7 @@ LeaAce = {
 			if (!b || b === 'false') {
 				b = 'javascript';
 			}
+			
 			aceEditor.session.setMode("ace/mode/" + b);
 			aceEditor.session.setOption("useWorker", false); // 不用语法检查
 			// retina

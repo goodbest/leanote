@@ -438,11 +438,7 @@ func (this *NoteService) UpdateNote(updatedUserId, noteId string, needUpdate bso
 	afterUsn := userService.IncrUsn(userId)
 	needUpdate["Usn"] = afterUsn
 
-	// 添加tag2
-	// TODO 这个tag去掉, 添加tag另外添加, 不要这个
-	if tags, ok := needUpdate["Tags"]; ok {
-		tagService.AddTagsI(userId, tags)
-	}
+	needRecountTags := false
 
 	// 是否修改了isBlog
 	// 也要修改noteContents的IsBlog
@@ -455,12 +451,32 @@ func (this *NoteService) UpdateNote(updatedUserId, noteId string, needUpdate bso
 			if !note.IsBlog {
 				needUpdate["PublicTime"] = needUpdate["UpdatedTime"]
 			}
+
+			needRecountTags = true
+		}
+	}
+
+	// 添加tag2
+	// TODO 这个tag去掉, 添加tag另外添加, 不要这个
+	if tags, ok := needUpdate["Tags"]; ok {
+		tagService.AddTagsI(userId, tags)
+
+		// 如果是博客, 标签改了, 那么重新计算
+		if note.IsBlog {
+			needRecountTags = true
 		}
 	}
 
 	ok = db.UpdateByIdAndUserIdMap(db.Notes, noteId, userId, needUpdate)
 	if !ok {
 		return ok, "", 0
+	}
+
+	if needRecountTags {
+		// 重新计算tags
+		go (func() {
+			blogService.ReCountBlogTags(userId)
+		})()
 	}
 
 	// 重新获取之
